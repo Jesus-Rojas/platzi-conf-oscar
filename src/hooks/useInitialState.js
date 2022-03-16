@@ -21,10 +21,24 @@ const useInitialState = () => {
       cart: state.cart.filter(data => data.id !== payload.id)
     })
   }
+  const addToBuyer = (payload) => {
+    setState({
+      ...state,
+      buyer: payload
+    })
+  }
+  const addNewOrder = (payload) => {
+    setState({
+      ...state,
+      orders: [...state.orders, payload] 
+    })
+  }
   return {
     addToCart,
     removeFromCart,
+    addToBuyer,
     state,
+    addNewOrder,
   }
 }
 
